@@ -5,7 +5,7 @@ import numpy as np
 
 class grid(object):
     def __init__(self, shape, size):
-        if shape.ndims != 1 or size.ndims != 1:
+        if shape.ndim != 1 or size.ndim != 1:
             raise ValueError('Input arguments \"shape\" and \"size\" must have '
                 'the same dimensionality.')
         if shape.shape != size.shape:
