@@ -16,3 +16,19 @@ add_executable(test_ray_tracing cpp/test_ray_tracing.cpp)
 target_link_libraries(test_ray_tracing Catch2::Catch2)
 
 pybind11_add_module(ray_tracing_python cpp/ray_tracing_python.cpp)
+
+add_custom_command(TARGET ray_tracing_python POST_BUILD 
+    COMMAND "${CMAKE_COMMAND}" -E copy 
+        "${CMAKE_BINARY_DIR}/ray_tracing_python.so" 
+        "${CMAKE_SOURCE_DIR}/python/raytracing/ray_tracing_python.so"
+    COMMENT "Copy shared library to Python directory")
+
+execute_process(
+    COMMAND python -c "if True:
+        from distutils.sysconfig import get_python_lib; print get_python_lib()" 
+    OUTPUT_VARIABLE PYTHON_SITE_PACKAGES 
+    OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+install(
+    DIRECTORY python/raytracing
+    DESTINATION ${PYTHON_SITE_PACKAGES})
