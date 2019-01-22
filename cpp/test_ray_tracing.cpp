@@ -102,7 +102,7 @@ TEST_CASE("ray penetrates grid (1D, -x)", "[1D]") {
     std::array<double, 1> size = {0.01};
     
     GridMap<1> map_gt(shape, size);
-    for (int i = 99; i >= 0; --i) {
+    for (int i = 0; i < 100; ++i) {
         map_gt.get_miss({i})++;
     }
 
