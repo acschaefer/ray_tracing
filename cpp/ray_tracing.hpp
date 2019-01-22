@@ -120,7 +120,7 @@ void trace_rays(
 
     std::vector<std::thread> threads;
     int const workers = std::min<int>(
-        start.size() / N, std::thread::hardware_concurrency());
+        start.size(), std::thread::hardware_concurrency());
     for (int i = 0; i < workers; ++i) {
         threads.push_back(std::thread(
             trace_ray_thread<N>, 
