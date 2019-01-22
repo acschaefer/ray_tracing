@@ -79,9 +79,11 @@ void register_map(pybind11::module & module) {
 
 template <int N>
 void register_function(pybind11::module & module) {
+    std::stringstream name;
+    name << "trace" << N << "d";
     std::stringstream description;
     description << "Amanatides-Woo ray tracing in " << N << "D";
-    module.def("trace3d", &trace_rays<N>, description.str().c_str(),
+    module.def(name.str().c_str(), &trace_rays<N>, description.str().c_str(),
         pybind11::arg("start"), pybind11::arg("end"), pybind11::arg("map"));
 }
 
