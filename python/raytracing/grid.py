@@ -34,3 +34,7 @@ class grid(object):
                 'Input argument \"index\" must be of shape Nx{}.'.format(
                     len(self.shape)))
         return (point // self.size).astype(int)
+
+    def __eq__(self, other):
+        return np.array_equal(self.shape, other.shape) \
+            and np.array_equal(self.size, other.size)
