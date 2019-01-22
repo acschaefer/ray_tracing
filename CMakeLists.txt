@@ -21,7 +21,7 @@ add_custom_command(TARGET ray_tracing_python POST_BUILD
     COMMAND "${CMAKE_COMMAND}" -E copy 
         "${CMAKE_BINARY_DIR}/ray_tracing_python.so" 
         "${CMAKE_SOURCE_DIR}/python/raytracing/ray_tracing_python.so"
-    COMMENT "Copy shared library to Python directory")
+    COMMENT "Copying shared library to Python directory")
 
 execute_process(
     COMMAND python -c "if True:
@@ -32,3 +32,11 @@ execute_process(
 install(
     DIRECTORY python/raytracing
     DESTINATION ${PYTHON_SITE_PACKAGES})
+
+enable_testing()
+add_test(
+    NAME test_cpp_implementation
+    COMMAND test_ray_tracing)
+add_test(
+    NAME test_python_implementation
+    COMMAND python -m pytest ${CMAKE_SOURCE_DIR}/python/test_raytracing.py)
