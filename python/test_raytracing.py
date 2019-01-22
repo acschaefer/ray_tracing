@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-from ..gridmap import *
 import numpy as np
 import pytest
 import raytracing as rt
@@ -11,8 +10,11 @@ def test_ray_penetrates_grid_1d_pos_x():
     end = np.array([6.78])
     shape = np.array([5])
     size = np.array([0.45])
-    indices_gt = np.reshape(np.arange(5), (-1,1))
-    indices = rt.trace1d(start, end, shape, size)
+    map = rt.gridmap(shape, size)
+    rt.trace1d(start, end, map)
+    map_gt = rt.gridmap(shape, size)
+    map_gt.misses[:5] = 1
+    # indices_gt = np.reshape(np.arange(5), (-1,1))
     assert(np.array_equal(indices_gt, indices))
 
 
@@ -126,13 +128,4 @@ def test_parallel_ray_tracing_2d():
 
 
 if __name__ == '__main__':
-    test_ray_penetrates_grid_1d_pos_x()
-    test_ray_penetrates_grid_1d_neg_x()
-    test_ray_starts_and_ends_in_grid_1d_pos_x()
-    test_ray_starts_and_ends_in_grid_1d_neg_x()
-    test_ray_starts_in_grid_and_ends_outside_1d_pos_x()
-    test_ray_starts_in_grid_and_ends_outside_1d_neg_x()
-    test_identical_start_and_end_2d_in_cell()
-    test_identical_start_and_end_2d_on_grid_line()
-    test_identical_start_and_end_2d_outside_grid()
-    test_parallel_ray_tracing_2d()
+    pytest.main()

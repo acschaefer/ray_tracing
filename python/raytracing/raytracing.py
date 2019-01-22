@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import numpy as np
-import build.ray_tracing_python as rtp
+import ray_tracing_python as rtp
 
 
 def trace1d(start, end, map):
