@@ -15,7 +15,7 @@ class gridmap(grid):
             0 <= index, index < np.resize(self.shape, index.shape)), axis=1)
 
     def reflectionmap(self):
-        with np.errstate(divide='ignore'):
+        with np.errstate(divide='ignore', invalid='ignore'):
             return np.true_divide(self.hits, (self.hits + self.misses))
 
     def __eq__(self, other): 
