@@ -6,9 +6,9 @@ Fast grid-based ray tracing in C++ and Python
 
 This library implements ray tracing through a uniform grid according to the algorithm proposed by Amanatides and Woo:
 
-> Amanatides, John, and Andrew Woo.<br/>
-> **A fast voxel traversal algorithm for ray tracing.**<br/>
-> *Eurographics. Vol. 87. No. 3. 1987.*
+> [Amanatides, John, and Andrew Woo.](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.42.3443&rep=rep1&type=pdf)<br/>
+> [**A fast voxel traversal algorithm for ray tracing.**](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.42.3443&rep=rep1&type=pdf)<br/>
+> [*Eurographics. Vol. 87. No. 3. 1987.*](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.42.3443&rep=rep1&type=pdf)
 
 The `ray_tracing` library is written in C++.
 In addition, it comes with Python bindings via [pybind11](https://pybind11.readthedocs.io/en/stable/).
