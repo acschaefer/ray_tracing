@@ -15,8 +15,29 @@ In addition, it comes with Python bindings via [pybind11](https://pybind11.readt
 
 ## How to use `ray_tracing`?
 
-1. Compile the library using the top-level CMake file.
-2. If you are in C++, use the function `trace_rays()` in the file [`ray_tracing.hpp`](cpp/ray_tracing.hpp) to find out by how many rays each grid cell is hit.
-3. If you are in Python, install the library via the CMake file and use one of the functions `raytracing.trace1d`, `raytracing.trace2d`, and `raytracing.trace3d`, defined in [`raytracing.py`](python/raytracing/raytracing.py).
+1. Install the required dependencies Catch2, pytest, and pybind11.
+
+   ```bash
+    git clone https://github.com/catchorg/Catch2.git
+    mkdir Catch2/build && Catch2/build
+    cmake .. && make -j8 && sudo make install
+
+    pip install pytest
+
+    git clone https://github.com/pybind/pybind11.git
+    mkdir pybind11/build && cd pybind11/build
+    cmake .. && make -j8 && sudo make install
+    ```
+
+2. Download and compile the repository.
+   
+    ```bash
+    git clone https://github.com/acschaefer/ray_tracing.git
+    mkdir ray_tracing/build && cd ray_tracing/build
+    cmake .. && make -j8 && sudo make install
+    ```
+
+3. If you are in C++, use the function `trace_rays()` in the file [`ray_tracing.hpp`](cpp/ray_tracing.hpp) to find out by how many rays each grid cell is hit.
+4. If you are in Python, install the library via the CMake file and use one of the functions `raytracing.trace1d`, `raytracing.trace2d`, and `raytracing.trace3d`, defined in [`raytracing.py`](python/raytracing/raytracing.py).
 
 Also have a look at the test cases to verify your installation and to further familiarize yourself with the functions.
