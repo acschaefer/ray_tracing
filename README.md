@@ -19,14 +19,19 @@ In addition, it comes with Python bindings via [pybind11](https://pybind11.readt
 
    ```bash
     git clone https://github.com/catchorg/Catch2.git
-    mkdir Catch2/build && Catch2/build
-    cmake .. && make -j8 && sudo make install
+    mkdir Catch2/build
+    cd Catch2/build
+    cmake ..
+    make -j8
+    sudo make install
 
     pip install pytest
 
     git clone https://github.com/pybind/pybind11.git
     mkdir pybind11/build && cd pybind11/build
-    cmake .. && make -j8 && sudo make install
+    cmake ..
+    make -j8
+    sudo make install
     ```
 
 2. Download and compile the repository.
@@ -34,7 +39,9 @@ In addition, it comes with Python bindings via [pybind11](https://pybind11.readt
     ```bash
     git clone https://github.com/acschaefer/ray_tracing.git
     mkdir ray_tracing/build && cd ray_tracing/build
-    cmake .. && make -j8 && sudo make install
+    cmake ..
+    make -j8
+    sudo make install
     ```
 
 3. If you are in C++, use the function `trace_rays()` in the file [`ray_tracing.hpp`](cpp/ray_tracing.hpp) to find out by how many rays each grid cell is hit.
