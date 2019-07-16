@@ -28,7 +28,8 @@ In addition, it comes with Python bindings via [pybind11](https://pybind11.readt
     pip install pytest
 
     git clone https://github.com/pybind/pybind11.git
-    mkdir pybind11/build && cd pybind11/build
+    mkdir pybind11/build
+    cd pybind11/build
     cmake ..
     make -j8
     sudo make install
