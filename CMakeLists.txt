@@ -24,8 +24,7 @@ add_custom_command(TARGET ray_tracing_python POST_BUILD
     COMMENT "Copying shared library to Python directory")
 
 execute_process(
-    COMMAND python -c "if True:
-        from distutils.sysconfig import get_python_lib; print get_python_lib()" 
+    COMMAND python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())" 
     OUTPUT_VARIABLE PYTHON_SITE_PACKAGES 
     OUTPUT_STRIP_TRAILING_WHITESPACE)
 
